@@ -19,10 +19,10 @@ class CreatePackagesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->integer('begin_place')->unsigned();
-            $table->foreign('begin_place')->references('id')->on('air_port')->onDelete('cascade');
+            $table->foreign('begin_place')->references('id')->on('airports')->onDelete('cascade');
 
             $table->integer('arrival_place')->unsigned();
-            $table->foreign('arrival_place')->references('id')->on('air_port')->onDelete('cascade');
+            $table->foreign('arrival_place')->references('id')->on('airports')->onDelete('cascade');
 
             $table->dateTime('begin_time');
             $table->dateTime('arrival_time');

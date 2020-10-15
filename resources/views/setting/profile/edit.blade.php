@@ -77,8 +77,8 @@
             @if(Auth::user()->country)
                 
             @endif
-            <img src="{{ (Auth::user()->country) ? asset('storage').'/'.Auth::user()->country->flag_path : asset('images/icon/default.jpg') }}" alt="flag" class="flag-in-field {{ Auth::user()->country ? '' : 'd-none' }} " width="30px">
-            <b class="code_calling">{{ (Auth::user()->country) ? '(+'. Auth::user()->country->calling_codes .') ' : '' }}</b>
+            <img src="{{ (Auth::user()->country) ? str_replace('{iso}', Auth::user()->country->iso, Auth::user()->country->flag) : asset('images/icon/default.jpg') }}" alt="flag" class="flag-in-field {{ Auth::user()->country ? '' : 'd-none' }} " width="30px">
+            <b class="code_calling">{{ (Auth::user()->country) ? '(+'. Auth::user()->country->phonecode .') ' : '' }}</b>
             <input type="text" class="form-control  @error('phone') is-invalid @enderror" name="phone" id="input-phone" 
             value="{{ Auth::user()->phone }}" value="{{ old('phone') }}" required placeholder="Your Phone Number">
             <span class="separator"></span>

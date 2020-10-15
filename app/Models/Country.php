@@ -9,6 +9,6 @@ class Country extends Model
     protected $table = 'country';
 
     protected $fillable = [
-        'name', 'native_name', 'code', 'time_zones', 'calling_codes'
+        'iso', 'iso3', 'name', 'flag', 'nicename', 'numcode', 'phone_code'
     ];
 }

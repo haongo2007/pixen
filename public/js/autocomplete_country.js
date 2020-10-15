@@ -35,23 +35,23 @@ function autocomplete(elm,val,data) {
             b.innerHTML += t1;
             b.innerHTML += "<strong>" + t2 + "</strong>";
             b.innerHTML += t3;
-            b.innerHTML += '&#160;<strong>( '+data[i].code+' )</strong>';
-            if (data[i].flag_path) {
-                b.innerHTML += '&#160;<img src="'+window.public_url+'storage/'+data[i].flag_path+'" width="30px" >';
+            b.innerHTML += '&#160;<strong>( '+data[i].iso+' )</strong>';
+            if (data[i].flag) {
+                b.innerHTML += '&#160;<img src="'+data[i].flag+'" width="30px" >';
             }
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' id='"+ data[i].id +"' value='" + data[i].name + "' flag='" +window.public_url+'storage/'+data[i].flag_path+ "' callingcode='" + data[i].calling_codes + "'>";
+            b.innerHTML += "<input type='hidden' id='"+ data[i].id +"' value='" + data[i].name + "' flag='" +data[i].flag+ "' callingcode='" + data[i].phonecode + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
             
         }else{
             b = document.createElement("DIV");
             b.innerHTML += data[i].name;
-            b.innerHTML += '&#160;<strong>( '+data[i].code+' )</strong>';
-            if (data[i].flag_path) {
-                b.innerHTML += '&#160;<img src="'+window.public_url+'storage/'+data[i].flag_path+'" width="30px" >';
+            b.innerHTML += '&#160;<strong>( '+data[i].iso+' )</strong>';
+            if (data[i].flag) {
+                b.innerHTML += '&#160;<img src="'+data[i].flag+'" width="30px" >';
             }
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' id='"+ data[i].id +"' value='" + data[i].name + "' flag='" +window.public_url+'storage/'+data[i].flag_path+ "' callingcode='" + data[i].calling_codes + "'>";
+            b.innerHTML += "<input type='hidden' id='"+ data[i].id +"' value='" + data[i].name + "' flag='" +data[i].flag+ "' callingcode='" + data[i].phonecode + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
         }
         b.addEventListener("click", function(e) {

@@ -85,10 +85,14 @@ class HomeController extends Controller
                 select *
                 from `country`
                 where REPLACE(`name`, ' ', '') LIKE ? 
-                or `code` LIKE ?
-                or `name_native` LIKE ? 
+                or `iso` LIKE ?
+                or `name` LIKE ? 
+                or `nicename` LIKE ? 
                 limit 15
             ", ['%'.$request->name.'%','%'.$request->name.'%','%'.$request->name.'%','%'.$request->name.'%']);
+            foreach ($results as $key => $value) {
+                $value->flag = str_replace('{iso}', $value->iso, $value->flag);
+            }
             return $results;
         }
     }
